@@ -1,3 +1,3 @@
 # SearchModule
-<p>Search Module(SM) for <h2>EHTools</h2></p>
+<p>Search Module(SM) for EHTools</p>
 I don't know what I need to write :)
