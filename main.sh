@@ -37,7 +37,7 @@ echo -e "Module      \/_/_/  by cake"
 sleep 11
 
 clear 
-read -p "Enter your link: " line
+read -p "Enter your link (without https://): " line
 
 if [ "$line" == "" ]
 then
