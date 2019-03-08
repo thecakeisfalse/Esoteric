@@ -32,7 +32,7 @@ echo -e "             ____   "
 echo -e "Entynet     /\___\  "
 echo -e "Project    /\ \___\ "
 echo -e "Search     \ \/ / / "
-echo -e "(Demo)      \/_/_/  by cake"
+echo -e "Module      \/_/_/  by cake"
 
 sleep 11
 
