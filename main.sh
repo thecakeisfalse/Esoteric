@@ -1,6 +1,32 @@
-#!   bin/bash
+#! /bin/bash
 
-#VERSION=1.0.2
+# 
+#            --------------------------------------------------
+#                            The Cake Is A Lie          
+#            --------------------------------------------------
+#
+#        Copyright (Shell) <2019>  <thecakeisfalse (Me)>
+#
+#        I don't know what do I need to write where. And because of it, I copy
+#        text from EntyNet's EHTools. I am strange cake.
+#
+#        This program is free software: you can redistribute it and/or modify
+#        it under the terms of the GNU General Public License as published by
+#        the Free Software Foundation, either version 3 of the License, or
+#        any later version.
+#
+#        This program is distributed in the hope that it will be useful,
+#        but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#        GNU General Public License for more details.
+#
+#        You should have received a copy of the GNU General Public License
+#        along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#	 VERSION=2.0.1
+#
+
+clear
 
 echo -e "             ____   "
 echo -e "Entynet     /\___\  "
@@ -8,12 +34,19 @@ echo -e "Project    /\ \___\ "
 echo -e "Search     \ \/ / / "
 echo -e "(Demo)      \/_/_/  by cake"
 
-pre = 'https://'
-read -p "Enter URL: " post
-if [["$post == ""]]
+sleep 11
+
+clear 
+read -p "Enter your link: " line
+
+if [ "$line" == "" ]
 then
-	start 'https://github.com/entynetproject/ehtools'
+    echo "Output: basic"
+    start "https://github.com/entynetproject/ehtools"
 else
-	line = '$pre + $post'
-	start $line
-sleep 25
+    echo "Output: "${line}" - true"
+    search='https://'${line}
+    start $search
+fi
+
+sleep 5
