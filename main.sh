@@ -1,7 +1,5 @@
 #! /bin/bash
 
-
-
 # 
 
 #            --------------------------------------------------
@@ -48,7 +46,7 @@
 
 #
 
-#	 VERSION=2.0.1
+#	 VERSION=2.0.3
 
 #
 
@@ -86,7 +84,7 @@ then
 
     echo "Output: basic"
 
-    Gio open "https://github.com/entynetproject/ehtools"
+    gio open "https://github.com/entynetproject/ehtools"
 
 else
 
@@ -94,7 +92,7 @@ else
 
     search='https://'${line}
 
-    Gio open "$search"
+    gio open "$search"
 
 fi
 
