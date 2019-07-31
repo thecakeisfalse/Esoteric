@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Brainfuck-interpreter",
   "version": "0.0.1",
-  "description": "",
+  "description": "Small brainfuck interpreter in C",
   "author": "thecakeisfalse",
-  "license": "Apache v2.0",
+  "license": "Apache 2.0",
 }
