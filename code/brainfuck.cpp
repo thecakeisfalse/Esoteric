@@ -9,7 +9,7 @@ int main(int argc, char* argv) {
 	if (argc == 2) {
 		ifstream infile(argv[1]);
                 while (infile) {
-			getline(infile, program);
+			program += getline(infile, program);
 		}
 		infile.close();
         }
