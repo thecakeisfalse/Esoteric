@@ -1,13 +1,19 @@
 #include <iostream>
 using namespace std;
  
-int main() {
-	int n;
-        cin >> n;
+int main(int argc, char* argv) {
+	const int n = 30000;
 	string tape(n,0);
 	int pointer = 0;
 	string program;
-	cin >> program;
+	if (argc == 2) {
+		ifstream infile(argv[1]);
+                while (infile) {
+			getline(infile, program);
+		}
+		infile.close();
+        }
+	else cin >> program;
 	for (unsigned int i = 0; i < program.length(); i++) {
 	        if (program[i] == '>')
 		        pointer++;
