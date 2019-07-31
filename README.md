@@ -35,13 +35,18 @@
 
 Brainfuck interpreter - interpreter written in C and C++. Have some examples in Brainfuck language. 
 
-## How to write "Hello, world!" (C++ version)
+## How to write "Hello World!" (C++ version)
 
     ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
 
-## How to write "Hello, world!" (C version)
+## How to write "Hello World!" (C version)
 
     100
     ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
 
+### Output
+
+    ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
+    Hello World!
+    
 # That's all
