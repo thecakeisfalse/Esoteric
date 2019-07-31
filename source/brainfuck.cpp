@@ -1,61 +1,47 @@
 #include <iostream>
 using namespace std;
- 
-int main(int argc, char* argv) {
+
+int main() {
 	const int n = 30000;
-	string tape(n,0);
+	char tape[n];
+	for (int i = 0; i < n; i++) tape[i] = 0;
 	int pointer = 0;
-	string program;
-	if (argc == 2) {
-		ifstream infile(argv[1]);
-                while (infile) {
-			program += getline(infile, program);
-		}
-		infile.close();
-        }
-	else {
-		cout << "brainfuck: ";
-		cin >> program;
-	}
-	for (unsigned int i = 0; i < program.length(); i++) {
-	        if (program[i] == '>')
-		        pointer++;
+	string code = "", tmp;
+	while (cin >> tmp) code += tmp;
+	cin >> code;
+	for (unsigned int i = 0; i < code.length(); i++) {
+		if (code[i] == '>') pointer++;
 		
-	        if (program[i] == '<')
-			pointer--;
+		if (code[i] == '<') pointer--;
 		
-		if (program[i] == '+')
-			tape[pointer]++;
+		if (code[i] == '+') tape[pointer]++;
 		
-		if (program[i] == '-')
-			tape[pointer]--;
+		if (code[i] == '-') tape[pointer]--;
 		
-		if (program[i] == '.')
-			cout << tape[pointer];
+		if (code[i] == '.') cout << tape[pointer];
 		
-		if (program[i] == ',')
-			cin >> tape[pointer];
+		if (code[i] == ',') cin >> tape[pointer];
 		
-		if (program[i] == '[') {
+		if (code[i] == '[') {
 			if (tape[pointer] == 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i++;
-					if (program[i] == '[')
+					if (code[i] == '[')
 						counter++;
-					if (program[i] == ']')
+					if (code[i] == ']')
 						counter--;
 				}
 			}
                 }
-                else if (program[i] == ']') {
+                else if (code[i] == ']') {
 			if (tape[pointer] != 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i--;
-					if (program[i] == '[')
+					if (code[i] == '[')
 						counter--;
-					if (program[i] == ']')
+					if (code[i] == ']')
 						counter++;
 				}
 			}
