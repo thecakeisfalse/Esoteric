@@ -15,7 +15,7 @@
   <a href="https://github.com/thecakeisfalse">
     <img src="https://img.shields.io/badge/developer-thecakeisfalse-green.svg">
  </a>
-  <a href="https://en.m.wikipedia.org/wiki/C_(programming_language)">
+  <a href="https://en.wikipedia.org/wiki/Brainfuck">
       <img src="https://img.shields.io/badge/language-Brainfuck-lightgrey.svg">
   </a>
     <a href="https://github.com/thecakeisafalse">
