@@ -30,3 +30,17 @@
 </p>
 
 ![IMG_2356](https://user-images.githubusercontent.com/48329968/62242073-130bcf80-b3e3-11e9-9c17-1c377354e47d.jpeg)
+
+# About the interpreter
+
+Brainfuck interpreter - interpreter written in C and C++. Have some examples in Brainfuck language. 
+
+# How to write "Hello, world!" (C++ version)
+
+    ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
+
+# How to write "Hello, world!" (C version)
+
+    100
+    ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.
+
