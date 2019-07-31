@@ -13,7 +13,10 @@ int main(int argc, char* argv) {
 		}
 		infile.close();
         }
-	else cin >> program;
+	else {
+		cout << "brainfuck: ";
+		cin >> program;
+	}
 	for (unsigned int i = 0; i < program.length(); i++) {
 	        if (program[i] == '>')
 		        pointer++;
