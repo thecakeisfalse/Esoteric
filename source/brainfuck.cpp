@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
 	const int n = 30000;
 	char tape[n];
 	for (int i = 0; i < n; i++) tape[i] = 0;
