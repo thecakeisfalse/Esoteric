@@ -16,7 +16,7 @@ char* read_string(size_t *size){
         }
     }
     str[length++] = '\0';
-    size = length;
+    size = &length;
     return str;
 }
 
