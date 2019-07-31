@@ -3,16 +3,16 @@ using namespace std;
  
 int main() {
 	int n;
-    cin >> n;
+        cin >> n;
 	string tape(n,0);
 	int pointer = 0;
 	string program;
 	cin >> program;
 	for (unsigned int i = 0; i < program.length(); i++) {
-		if (program[i] == '>')
-			pointer++;
+	        if (program[i] == '>')
+		        pointer++;
 		
-		if (program[i] == '<')
+	        if (program[i] == '<')
 			pointer--;
 		
 		if (program[i] == '+')
@@ -38,8 +38,8 @@ int main() {
 						counter--;
 				}
 			}
-        }
-        else if (program[i] == ']') {
+                }
+                else if (program[i] == ']') {
 			if (tape[pointer] != 0) {
 				int counter = 1;
 				while (counter > 0) {
@@ -50,8 +50,7 @@ int main() {
 						counter++;
 				}
 			}
+                }
         }
-    }
- 
 	return 0;
 }
