@@ -33,7 +33,7 @@
 
 ## About the interpreter
 
-Brainfuck interpreter - interpreter written in C and C++. Have some examples in Brainfuck language. 
+Brainfuck interpreter - interpreter written in [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [C++](https://en.wikipedia.org/wiki/C%2B%2B). Have some examples in Brainfuck language. 
 
 ## How to write "Hello World!" (C++ version)
 
