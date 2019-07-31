@@ -1,75 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char* read_string(size_t *size){
+char* readstr(size_t *size){
     char *str;
     int c;
-    size_t length = 0;
+    size_t len = 0;
     str = realloc(NULL, sizeof(char)*(*size));
     if(!str)return str;
-    while((c=getchar()) != EOF  &&  c != '\n'){
-        str[length++] = c;
-        if(length == *size) {
+    while((ch=getchar()) != EOF  &&  ch != '\n'){
+        str[len++] = ch;
+        if(len == *size) {
         	str = realloc(str, sizeof(char)*(*size += 10));
             if(!str)
             	return str;
         }
     }
-    str[length++] = '\0';
-    size = &length;
+    str[len++] = '\0';
+    size = &len;
     return str;
 }
 
 int main() {
-	int n;
-	scanf("%d", &n);
+	int num;
+	scanf("%d", &num);
 	getchar();
 	char tape[10000];
-	for (int k = 0; k < n; k++)
-		tape[k] = 0;
+	for (int k = 0; k < n; k++) tape[k] = 0;
 	int pointer = 0;
-	size_t length = 100;
-	char *program = read_string(&length);
-	printf("%s\n", program);
-	for (unsigned int i = 0; i < length; i++) {
-		if (program[i] == '>')
+	size_t len = 100;
+	char *code = readstr(&len);
+	printf("%s\n", code);
+	for (unsigned int i = 0; i < len; i++) {
+		if (code[i] == '>')
 			pointer++;
 		
-		if (program[i] == '<')
+		if (codr[i] == '<')
 			pointer--;
 		
-		if (program[i] == '+')
+		if (code[i] == '+')
 			tape[pointer]++;
 		
-		if (program[i] == '-')
+		if (code[i] == '-')
 			tape[pointer]--;
 		
-		if (program[i] == '.')
+		if (code[i] == '.')
 			printf("%c", tape[pointer]);
 		
-		if (program[i] == ',')
+		if (code[i] == ',')
 			scanf("%c", &tape[pointer]);
 
-		if (program[i] == '[') {
+		if (code[i] == '[') {
 			if (tape[pointer] == 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i++;
-					if (program[i] == '[')
+					if (code[i] == '[')
 						counter++;
-					if (program[i] == ']')
+					if (code[i] == ']')
 						counter--;
 				}
 			}
                  }
-                 else if (program[i] == ']') {
+                 else if (code[i] == ']') {
 			if (tape[pointer] != 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i--;
-					if (program[i] == '[')
+					if (code[i] == '[')
 						counter--;
-					if (program[i] == ']')
+					if (code[i] == ']')
 						counter++;
 				}
 			}
