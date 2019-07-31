@@ -3,7 +3,7 @@
 
 char* readstr(size_t *size){
     char *str;
-    int c;
+    int ch;
     size_t len = 0;
     str = realloc(NULL, sizeof(char)*(*size));
     if(!str)return str;
@@ -20,7 +20,7 @@ char* readstr(size_t *size){
     return str;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 	int num;
 	scanf("%d", &num);
 	getchar();
