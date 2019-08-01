@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 		
 		if (code[i] == '-') tape[pointer]--;
 		
-		if (code[i] == '.') cout << "c++"; //cout << tape[pointer];
+		if (code[i] == '.') cout << tape[pointer];
 		
 		if (code[i] == ',') cin >> tape[pointer];
 		
