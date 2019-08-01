@@ -21,10 +21,8 @@ int main(int argc, char *argv[]) {
 				int counter = 1;
 				while (counter > 0) {
 					i++;
-					if (code[i] == '[')
-						counter++;
-					if (code[i] == ']')
-						counter--;
+					if (code[i] == '[') counter++;
+					if (code[i] == ']') counter--;
 				}
 			}
                 }
@@ -33,10 +31,8 @@ int main(int argc, char *argv[]) {
 				int counter = 1;
 				while (counter > 0) {
 					i--;
-					if (code[i] == '[')
-						counter--;
-					if (code[i] == ']')
-						counter++;
+					if (code[i] == '[') counter--;
+					if (code[i] == ']') counter++;
 				}
 			}
                 }
