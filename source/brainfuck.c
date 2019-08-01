@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
 	char tap[10000];
 	for (int k = 0; k < num; k++) tap[k] = 0;
 	int pointer = 0;
-	size_t len = 100;
-	char *code = readstr(&len);
+	size_t len = 10000;
+	char *code=readstr(&len);
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
 		if (code[i] == '<') pointer--;
