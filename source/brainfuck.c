@@ -21,11 +21,11 @@ char* readstr(size_t *size){
 }
 
 int main(int argc, char *argv[]) {
-	const int num = 30000;
-	char tap[10000];
+	const int num = 10000;
+	char tap[num];
 	for (int k = 0; k < num; k++) tap[k] = 0;
 	int pointer = 0;
-	size_t len = 10000;
+	size_t len = num;
 	char *code=readstr(&len);
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
