@@ -21,11 +21,9 @@ char* readstr(size_t *size){
 }
 
 int main(int argc, char *argv[]) {
-	int num;
-	scanf("%d", &num);
-	getchar();
+	const int num = 30000;
 	char tape[10000];
-	for (int k = 0; k < n; k++) tape[k] = 0;
+	for (int k = 0; k < num; k++) tape[k] = 0;
 	int pointer = 0;
 	size_t len = 100;
 	char *code = readstr(&len);
@@ -33,7 +31,7 @@ int main(int argc, char *argv[]) {
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
 		
-		if (codr[i] == '<') pointer--;
+		if (code[i] == '<') pointer--;
 	
 		if (code[i] == '+') tape[pointer]++;
 		
