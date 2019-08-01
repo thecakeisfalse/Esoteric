@@ -22,21 +22,20 @@ char* readstr(size_t *size){
 
 int main(int argc, char *argv[]) {
 	const int num = 30000;
-	char tape[10000];
-	for (int k = 0; k < num; k++) tape[k] = 0;
+	char tap[10000];
+	for (int k = 0; k < num; k++) tap[k] = 0;
 	int pointer = 0;
 	size_t len = 100;
 	char *code = readstr(&len);
-	printf("%s\n", code);
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
 		if (code[i] == '<') pointer--;
-		if (code[i] == '+') tape[pointer]++;
-		if (code[i] == '-') tape[pointer]--;
-		if (code[i] == '.') printf("%c", tape[pointer]);
-		if (code[i] == ',') scanf("%c", &tape[pointer]);
+		if (code[i] == '+') tap[pointer]++;
+		if (code[i] == '-') tap[pointer]--;
+		if (code[i] == '.') printf("%c", tap[pointer]);
+		if (code[i] == ',') scanf("%c", &tap[pointer]);
 		if (code[i] == '[') {
-			if (tape[pointer] == 0) {
+			if (tap[pointer] == 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i++;
@@ -46,7 +45,7 @@ int main(int argc, char *argv[]) {
 			}
                  }
                  else if (code[i] == ']') {
-			if (tape[pointer] != 0) {
+			if (tap[pointer] != 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i--;
