@@ -29,7 +29,7 @@
  </a>
 </p>
 
-![IMG_2360](https://user-images.githubusercontent.com/48329968/62292789-e3ef6f80-b46f-11e9-8b87-13fc1428ca39.jpeg)
+![IMG_2360](https://user-images.githubusercontent.com/48329968/62293094-7d1e8600-b470-11e9-93e4-51ac64e36811.jpeg)
 
 ## About the interpreter
 
