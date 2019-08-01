@@ -30,26 +30,18 @@ int main(int argc, char *argv[]) {
 	printf("%s\n", code);
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
-		
 		if (code[i] == '<') pointer--;
-	
 		if (code[i] == '+') tape[pointer]++;
-		
 		if (code[i] == '-') tape[pointer]--;
-		
 		if (code[i] == '.') printf("%c", tape[pointer]);
-		
 		if (code[i] == ',') scanf("%c", &tape[pointer]);
-
 		if (code[i] == '[') {
 			if (tape[pointer] == 0) {
 				int counter = 1;
 				while (counter > 0) {
 					i++;
-					if (code[i] == '[') 
-						counter++;
-					if (code[i] == ']') 
-						counter--;
+					if (code[i] == '[') counter++;
+					if (code[i] == ']') counter--;
 				}
 			}
                  }
@@ -58,10 +50,8 @@ int main(int argc, char *argv[]) {
 				int counter = 1;
 				while (counter > 0) {
 					i--;
-					if (code[i] == '[')
-						counter--;
-					if (code[i] == ']')
-						counter++;
+					if (code[i] == '[') counter--;
+					if (code[i] == ']') counter++;
 				}
 			}
                  }
