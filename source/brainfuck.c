@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define NUM 10000
 
 char* readstr(size_t *size){
     char *str;
@@ -21,11 +22,10 @@ char* readstr(size_t *size){
 }
 
 int main(int argc, char *argv[]) {
-	const int num = 10000;
-	char tap[num];
-	for (int k = 0; k < num; k++) tap[k] = 0;
+	char tap[NUM];
+	for (int k = 0; k < NUM; k++) tap[k] = 0;
 	int pointer = 0;
-	size_t len = num;
+	size_t len = NUM;
 	char *code=readstr(&len);
 	for (unsigned int i = 0; i < len; i++) {
 		if (code[i] == '>') pointer++;
