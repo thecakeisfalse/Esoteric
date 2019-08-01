@@ -11,17 +11,11 @@ int main(int argc, char *argv[]) {
 	cin >> code;
 	for (unsigned int i = 0; i < code.length(); i++) {
 		if (code[i] == '>') pointer++;
-		
 		if (code[i] == '<') pointer--;
-		
-		if (code[i] == '+') tape[pointer]++;
-		
+	        if (code[i] == '+') tape[pointer]++;
 		if (code[i] == '-') tape[pointer]--;
-		
 		if (code[i] == '.') cout << tape[pointer];
-		
 		if (code[i] == ',') cin >> tape[pointer];
-		
 		if (code[i] == '[') {
 			if (tape[pointer] == 0) {
 				int counter = 1;
