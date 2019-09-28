@@ -3,6 +3,7 @@
 #define NUM 10000
 
 char* readstr(size_t *size){
+    printf("Brainfuck: ");
     char *str;
     int ch;
     size_t len = 0;
