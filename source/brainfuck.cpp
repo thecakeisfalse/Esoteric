@@ -6,8 +6,8 @@ int main(int argc, char *argv[]) {
 	char tape[n];
 	for (int i = 0; i < n; i++) tape[i] = 0;
 	int pointer = 0;
-	string code = "", tmp;
-	while (cin >> tmp) code += tmp;
+	string code = "";
+	cout << "Brainfuck: ";
 	cin >> code;
 	for (unsigned int i = 0; i < code.length(); i++) {
 		if (code[i] == '>') pointer++;
