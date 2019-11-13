@@ -1,4 +1,4 @@
-# Brainfuck Interpreter
+# Esoteric
                                                    
                                 (                        (                   )  
                               ( )\  (       )  (         )\ )    (        ( /(  
@@ -22,7 +22,7 @@
       <img src="https://img.shields.io/badge/team-CakeTeam-red.svg">
   </a>
   <a href="https://github.com/thecakeisfalse/Brainfuck-interpreter/blob/master/LICENSE">
-      <img src="https://img.shields.io/badge/license-Apache 2.0-blue.svg">
+      <img src="https://img.shields.io/badge/license-GPL 3.0-blue.svg">
   </a>
   <a href="https://twitter.com/thecakeisfalse">
     <img src="https://img.shields.io/badge/twitter-thecakeisfalse-blue.svg">
