@@ -42,5 +42,3 @@ Brainfuck interpreter - interpreter written in [C](https://en.wikipedia.org/wiki
 ### Output
 
     Hello World!
-    
-# That's all
