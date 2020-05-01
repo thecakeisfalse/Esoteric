@@ -1,3 +1,0 @@
-*.html linguist-language=C
-*.cpp  linguist-language=Html
-*.c    linguist-language=Cpp
