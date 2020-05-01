@@ -18,7 +18,7 @@ void hq9(char* commands) {
 				printf("Take one down, pass it around,\n");
 				printf("%d bottles of beer on the wall.\n\n", j - 1);
 			}
-			printf("1 bottle of beer on the wall,\n1 bottle of beer.\nTake one down, pass it around,\nno more bottles of beer on the wall.");
+			printf("1 bottle of beer on the wall,\n1 bottle of beer.\nTake one down, pass it around,\nno more bottles of beer on the wall.\n");
 		} else if (commands[i] == '+') {
 			accumulator++;
 		}
