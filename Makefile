@@ -9,7 +9,7 @@ ESOTERIC_DIR := $(SOURCE_DIR)/esoteric
 LIB_DIR      := $(SOURCE_DIR)/lib
 
 CC           := gcc
-CFLAGS       := -g -I $(INCLUDE_DIR)
+CFLAGS       := -g -I $(INCLUDE_DIR) -w
 
 OBJS         := $(SOURCE_DIR)/main.o \
 				$(ESOTERIC_DIR)/brainfuck.o \
