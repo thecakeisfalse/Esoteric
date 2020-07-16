@@ -1,0 +1,15 @@
+language: c
+
+compiler: gcc
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc
+
+jobs:
+  include:
+    - stage: "Build Esoteric"
+      script: make
