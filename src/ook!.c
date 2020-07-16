@@ -1,4 +1,4 @@
-#include <esoteric/ook!.h>
+#include "esoteric.h"
 
 char* ook2bf(char* commands) {
 	int length = (strlen(commands) + 1) / 10;

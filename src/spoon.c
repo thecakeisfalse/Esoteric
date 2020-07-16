@@ -1,4 +1,4 @@
-#include <esoteric/spoon.h>
+#include "esoteric.h"
 
 char* spoon2bf(char* commands) {
 	char* buf = malloc(sizeof(char)*strlen(commands));

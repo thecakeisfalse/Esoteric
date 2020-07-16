@@ -2,9 +2,9 @@
  * HQ9+ module source file
  */
 
-#include <esoteric/hq9+.h>
+#include "esoteric.h"
 
-void hq9(char* commands) {
+void hq9(char *commands) {
 	int accumulator = 0;
 	for (int i = 0; i < strlen(commands); i++) {
 		if (commands[i] == 'H') {

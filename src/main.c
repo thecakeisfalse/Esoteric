@@ -1,32 +1,39 @@
-/* DOESN'T WORK NOW */
+#include "esoteric.h"
 
-#include <lib/args.h>
-#include <esoteric.h>
+char* get_file_expansion(char *filename) {
+    unsigned int start = 0, stop;
+    for (stop = 0; filename[stop]; stop++) {
+        if (filename[stop] == '.') {
+            start = stop + 1;
+        }
+    }
+		return filename+start;
+}
+
+char* read_file(char *filename) {
+	FILE* file = fopen(filename, "r");
+	int pointer = 0;
+	char* content = (char*)malloc(4096*sizeof(char));
+	char ch;
+	while ((ch = fgetc(file)) != EOF) {
+		content[pointer++] = ch;
+	}
+	return content;
+}
 
 int main(int argc, char* argv[]) {
-char** arguments = args(argc, argv);
-	char* buf = (char*)malloc(1024), *tmp = (char*)malloc(512);
-	memset(buf, 0, 1024);
-	if (strcmp(arguments[1], "") == 0) {
-		printf("lang> ");
-		scanf("%s", tmp);
-		arguments[1] = tmp;
-	}
-	if (strcmp(arguments[0], "") == 0) {
-		printf("%s> ", arguments[1]);
-		scanf("%s", buf);
+	char *expansion = get_file_expansion(argv[argc-1]);
+	char *content = read_file(argv[argc-1]);
+	if (strcmp(expansion, "mal") == 0 || strcmp(expansion, "mb") == 0) {
+		malbolge(content);
+	} else if (strcmp(expansion, "bf") == 0 || strcmp(expansion, "b") == 0) {
+		brainfuck(content);
+	} else if (strcmp(expansion, "ook") == 0 || strcmp(expansion, "ok") == 0) {
+		ook(content);
+	} else if (strcmp(expansion, "sp") == 0) {
+		spoon(content);
 	} else {
-		FILE* file;
-		char c;
-		file = fopen(arguments[0], "r");
-		int pointer = 0;
-		while ((c = fgetc(file)) != EOF)
-			buf[pointer++] = c;
-		fclose(file);
+		hq9(content);
 	}
-	printf("%s\n", buf);
-	exec(arguments[1], buf);
-	free(tmp);
-	free(buf);
 	return 0;
 }

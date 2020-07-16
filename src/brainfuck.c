@@ -2,7 +2,7 @@
  * Brainfuck module source file
  */
 
-#include <esoteric/brainfuck.h>
+#include "esoteric.h"
 
 void brainfuck(char* commands) {
 	char buf[1024];
@@ -24,7 +24,7 @@ void brainfuck(char* commands) {
 		} else if (commands[i] == '.') {
 			printf("%c", buf[pointer]);
 		} else if (commands[i] == ',') {
-			scanf("%d", buf[pointer]);
+			scanf("%d", &buf[pointer]);
 		} else if (commands[i] == '[') {
 			if (buf[pointer] == 0) {
 				int counter = 1;
