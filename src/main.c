@@ -1,25 +1,21 @@
+/*
+ * This file is part of Esoteric.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #include "esoteric.h"
-
-char* get_file_expansion(char *filename) {
-    unsigned int start = 0, stop;
-    for (stop = 0; filename[stop]; stop++) {
-        if (filename[stop] == '.') {
-            start = stop + 1;
-        }
-    }
-		return filename+start;
-}
-
-char* read_file(char *filename) {
-	FILE* file = fopen(filename, "r");
-	int pointer = 0;
-	char* content = (char*)malloc(4096*sizeof(char));
-	char ch;
-	while ((ch = fgetc(file)) != EOF) {
-		content[pointer++] = ch;
-	}
-	return content;
-}
 
 int main(int argc, char* argv[]) {
 	char *expansion = get_file_expansion(argv[argc-1]);
@@ -36,4 +32,37 @@ int main(int argc, char* argv[]) {
 		hq9(content);
 	}
 	return 0;
+}
+
+/*
+ * Get file extension.
+ *
+ * @param commands Name of the file.
+ * @returh File extension.
+ */
+char* get_file_expansion(char *filename) {
+    unsigned int start = 0, stop;
+    for (stop = 0; filename[stop]; stop++) {
+        if (filename[stop] == '.') {
+            start = stop + 1;
+        }
+    }
+		return filename+start;
+}
+
+/*
+ * Get file content.
+ *
+ * @param commands Name of the file.
+ * @returh File content.
+ */
+char* read_file(char *filename) {
+	FILE* file = fopen(filename, "r");
+	int pointer = 0;
+	char* content = (char*)malloc(4096*sizeof(char));
+	char ch;
+	while ((ch = fgetc(file)) != EOF) {
+		content[pointer++] = ch;
+	}
+	return content;
 }
