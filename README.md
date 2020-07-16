@@ -1,13 +1,5 @@
 # Esoteric
 
-     _____          _            _
-    |  ___|        | |          (_)
-    | |__ ___  ___ | |_ ___ _ __ _  ___
-    |  __/ __|/ _ \| __/ _ \ '__| |/ __|
-    | |__\__ \ (_) | ||  __/ |  | | (__
-    \____/___/\___/ \__\___|_|  |_|\___|
-
-
 Esoteric - a simple interpreter for esoteric languages, written in C.
 
 ## Summary
