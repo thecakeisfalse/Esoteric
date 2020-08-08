@@ -1,4 +1,4 @@
-# Esoteric
+# Esoteric [![Build Status](https://travis-ci.com/thecaketeam/Esoteric.svg?branch=master)](https://travis-ci.com/thecaketeam/Esoteric)
 
 Esoteric - a simple interpreter for esoteric languages, written in C.
 
