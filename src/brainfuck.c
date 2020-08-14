@@ -22,11 +22,13 @@
  *
  * @param commands Contain brainfuck commands.
  */
-void brainfuck(char* commands) {
+void brainfuck(char *commands) {
 	char buf[1024];
 	int pointer = 0;
+	int counter = 0;
+	size_t i = 0;
 	memset(buf, 0, 1024*sizeof(char));
-	for (int i = 0; i < strlen(commands); i++) {
+	while (i < strlen(commands)) {
 		if (commands[i] == '>') {
 			if (pointer < 1024)
 				pointer++;
@@ -42,10 +44,10 @@ void brainfuck(char* commands) {
 		} else if (commands[i] == '.') {
 			printf("%c", buf[pointer]);
 		} else if (commands[i] == ',') {
-			scanf("%d", &buf[pointer]);
+			scanf("%d", (int*)&buf[pointer]);
 		} else if (commands[i] == '[') {
 			if (buf[pointer] == 0) {
-				int counter = 1;
+				counter = 1;
 				while (counter > 0) {
 					i++;
 					if (commands[i] == '[') counter++;
@@ -54,7 +56,7 @@ void brainfuck(char* commands) {
 			}
 		} else if (commands[i] == ']') {
 			if (buf[pointer] != 0) {
-				int counter = 1;
+				counter = 1;
 				while (counter > 0) {
 					i--;
 					if (commands[i] == '[') counter--;
@@ -62,5 +64,6 @@ void brainfuck(char* commands) {
 				}
 			}
 		}
+		i++;
 	}
 }

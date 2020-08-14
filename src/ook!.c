@@ -17,15 +17,18 @@
 
 #include "esoteric.h"
 
-char* ook2bf(char* commands) {
+char *ook2bf(char *commands) {
 	int length = (strlen(commands) + 1) / 10;
-	char* buf = malloc(sizeof(char) * length * 2);
-	for (int j = 0, i = 0; i < strlen(commands); i++) {
+	size_t i = 0, j = 0;
+	char *buf = malloc(sizeof(char)*length*2);
+	char *text = malloc(sizeof(char)*length);
+	while (i < strlen(commands)) {
 		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?')
 			buf[j++] = commands[i];
+		i++;
 	}
-	char* text = malloc(sizeof(char)*length);
-	for (int j = 0, i = 0; i < length*2; i++) {
+	j = 0;
+	while (i < (size_t)length*2) {
 		if(buf[i] == '.') {
 			i++;
 			if (buf[i] == '.') {
@@ -52,12 +55,13 @@ char* ook2bf(char* commands) {
 				text[j++] = '-';
 			}
 		}
+		i++;
 	}
 	free(buf);
 	return text;
 }
 
-void ook(char* commands) {
-	char* text = ook2bf(commands);
+void ook(char *commands) {
+	char *text = ook2bf(commands);
 	brainfuck(text);
 }

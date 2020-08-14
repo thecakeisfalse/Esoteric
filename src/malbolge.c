@@ -33,36 +33,43 @@ long rotate(long n) {
 }
 
 long crazy(long a, long b) {
-	long result = 0;
-	long d = 1;
-	for (int i = 0; i < 10; i++) {
+	long result = 0, d = 1;
+	int i = 0;
+	while (i < 10) {
 		result += TABLE_CRAZY[(int)((b/d)%3)][(int)((a/d)%3)] * d;
 		d *= 3;
+		i++;
 	}
 	return result;
 }
 
 bool is_valid_opcode(char c, int pointer) {
-	for (int i = 0; i < 8; i++) {
+	int i = 0;
+	while (i < 8) {
 		if (((int)c + pointer) % 94 == OPCODES_VALID[i])
 			return true;
+		i++;
 	}
 	return false;
 }
 
-void malbolge(char* commands) {
+void malbolge(char *commands) {
 	long pointer = 0;
-	for (int i = 0; i < strlen(commands); i++) {
+	long a = 0, c = 0, d = 0;
+	long v = 0;
+	size_t i = 0;
+	while (i < strlen(commands)) {
 		if (commands[i] == ' ' || commands[i] == '\n')
 			continue;
 		if (!is_valid_opcode(commands[i], pointer)) {
-			printf("[ERROR] Invalid character! i=%d commands[%i]=%d='%c'", i, i, commands[i], commands[i]);
+			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'", i, i, commands[i], commands[i]);
 		}
 		if (pointer == 59049) {
 			printf("[ERROR] Source is too long!");
 		}
 		mem[pointer] = (int)commands[i];
 		pointer++;
+		i++;
 	}
 
 	while (pointer < 59049) {
@@ -70,11 +77,10 @@ void malbolge(char* commands) {
 		pointer++;
 	}
 
-	long a = 0, c = 0, d = 0;
 	while (1) {
 		if (mem[c] < 33 || mem[c] > 126)
 			return;
-		long v = (mem[c] + c) % 94;
+		v = (mem[c] + c) % 94;
 		if (v == 4)
 			c = mem[d];
 		else if (v == 5)

@@ -17,7 +17,7 @@
 
 #include "esoteric.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
 	char *expansion = get_file_expansion(argv[argc-1]);
 	char *content = read_file(argv[argc-1]);
 	if (strcmp(expansion, "mal") == 0 || strcmp(expansion, "mb") == 0) {
@@ -40,14 +40,14 @@ int main(int argc, char* argv[]) {
  * @param commands Name of the file.
  * @returh File extension.
  */
-char* get_file_expansion(char *filename) {
+char *get_file_expansion(char *filename) {
     unsigned int start = 0, stop;
     for (stop = 0; filename[stop]; stop++) {
         if (filename[stop] == '.') {
             start = stop + 1;
         }
     }
-		return filename+start;
+    return filename+start;
 }
 
 /*
@@ -56,10 +56,10 @@ char* get_file_expansion(char *filename) {
  * @param commands Name of the file.
  * @returh File content.
  */
-char* read_file(char *filename) {
-	FILE* file = fopen(filename, "r");
+char *read_file(char *filename) {
+	FILE *file = fopen(filename, "r");
 	int pointer = 0;
-	char* content = (char*)malloc(4096*sizeof(char));
+	char *content = (char *)malloc(4096*sizeof(char));
 	char ch;
 	while ((ch = fgetc(file)) != EOF) {
 		content[pointer++] = ch;

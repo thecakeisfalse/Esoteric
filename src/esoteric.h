@@ -33,11 +33,11 @@ void brainfuck(char *);
 void spoon(char *);
 void malbolge(char *);
 
-char* ook2bf(char *);
-char* spoon2bf(char *);
+char *ook2bf(char *);
+char *spoon2bf(char *);
 
-char* get_file_expansion(char *);
-char* read_file(char *);
+char *get_file_expansion(char *);
+char *read_file(char *);
 
 #ifdef __cplusplus
 }
