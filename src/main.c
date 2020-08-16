@@ -41,13 +41,13 @@ int main(int argc, char *argv[]) {
  * @returh File extension.
  */
 char *get_file_expansion(char *filename) {
-  unsigned int start = 0, stop;
+	unsigned int start = 0, stop;
 	for (stop = 0; filename[stop]; stop++) {
-    if (filename[stop] == '.') {
-      start = stop + 1;
-    }
+		if (filename[stop] == '.') {
+			start = stop + 1;
+		}
 	}
-  return filename+start;
+	return filename+start;
 }
 
 /*
