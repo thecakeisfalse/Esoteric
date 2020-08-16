@@ -41,13 +41,13 @@ int main(int argc, char *argv[]) {
  * @returh File extension.
  */
 char *get_file_expansion(char *filename) {
-    unsigned int start = 0, stop;
-    for (stop = 0; filename[stop]; stop++) {
-        if (filename[stop] == '.') {
-            start = stop + 1;
-        }
+  unsigned int start = 0, stop;
+	for (stop = 0; filename[stop]; stop++) {
+    if (filename[stop] == '.') {
+      start = stop + 1;
     }
-    return filename+start;
+	}
+  return filename+start;
 }
 
 /*
@@ -57,12 +57,15 @@ char *get_file_expansion(char *filename) {
  * @returh File content.
  */
 char *read_file(char *filename) {
-	FILE *file = fopen(filename, "r");
-	int pointer = 0;
-	char *content = (char *)malloc(4096*sizeof(char));
-	char ch;
-	while ((ch = fgetc(file)) != EOF) {
-		content[pointer++] = ch;
-	}
-	return content;
+	int size;
+	char *buffer;
+	FILE *file;
+	file = fopen(filename, "r");
+	fseek(file, 0, SEEK_END);
+	size = ftell(file);
+	rewind(file);
+	buffer = (char*)malloc(sizeof(char)*size);
+	fread(buffer, size, sizeof(char), file);
+	fclose(file);
+	return buffer;
 }

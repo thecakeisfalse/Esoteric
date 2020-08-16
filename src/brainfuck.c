@@ -23,47 +23,42 @@
  * @param commands Contain brainfuck commands.
  */
 void brainfuck(char *commands) {
-	char buf[1024];
-	int pointer = 0;
-	int counter = 0;
-	size_t i = 0;
-	memset(buf, 0, 1024*sizeof(char));
-	while (i < strlen(commands)) {
-		if (commands[i] == '>') {
-			if (pointer < 1024)
-				pointer++;
-		} else if (commands[i] == '<') {
-			if (pointer > 0)
-				pointer--;
-		} else if (commands[i] == '+') {
-			if (buf[pointer] < 127)
-				buf[pointer]++;
-		} else if (commands[i] == '-') {
-			if (buf[pointer] > 0)
-				buf[pointer]--;
-		} else if (commands[i] == '.') {
-			printf("%c", buf[pointer]);
-		} else if (commands[i] == ',') {
-			scanf("%d", (int*)&buf[pointer]);
-		} else if (commands[i] == '[') {
-			if (buf[pointer] == 0) {
-				counter = 1;
-				while (counter > 0) {
-					i++;
-					if (commands[i] == '[') counter++;
-					if (commands[i] == ']') counter--;
-				}
-			}
-		} else if (commands[i] == ']') {
-			if (buf[pointer] != 0) {
-				counter = 1;
-				while (counter > 0) {
-					i--;
-					if (commands[i] == '[') counter--;
-					if (commands[i] == ']') counter++;
-				}
-			}
-		}
-		i++;
-	}
+	const char *p = commands;
+  int buffer[30000];
+  int pointer = 0;
+  int counter = 1;
+  do {
+    if (*p == '[') {
+      if (buffer[pointer] == 0) {
+        counter = 1;
+        while (counter > 0) {
+          p++;
+          if (*p == '[') counter++;
+          if (*p == ']') counter--;
+        }
+      }
+    }
+    if (*p == ']') {
+      if (buffer[pointer] != 0) {
+        counter = 1;
+        while (counter > 0) {
+          p--;
+          if (*p == '[') counter--;
+          if (*p == ']') counter++;
+        }
+      }
+    }
+    if (*p == '+')
+      buffer[pointer]++;
+    if (*p == '-')
+      buffer[pointer]--;
+    if (*p == '<')
+      pointer--;
+    if (*p == '>')
+      pointer++;
+    if (*p == '.')
+      putchar(buffer[pointer]);
+    if (*p == ',')
+      scanf("%d", &buffer[pointer]);
+  } while (*(p++));
 }
