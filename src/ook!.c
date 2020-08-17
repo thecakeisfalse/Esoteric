@@ -22,13 +22,16 @@ char *ook2bf(char *commands) {
 	size_t i = 0, j = 0;
 	char *buf = malloc(sizeof(char)*length*2);
 	char *text = malloc(sizeof(char)*length);
-	while (i < strlen(commands)) {
+	size_t len = strlen(commands);
+	memset(text, 0, sizeof(char)*length);
+	while (i < len) {
 		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?')
 			buf[j++] = commands[i];
+		buf[j] = 0;
 		i++;
 	}
-	j = 0;
-	while (i < (size_t)length*2) {
+	j = i = 0;
+	while (i < strlen(buf)) {
 		if(buf[i] == '.') {
 			i++;
 			if (buf[i] == '.') {

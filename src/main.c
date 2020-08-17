@@ -26,9 +26,9 @@ int main(int argc, char *argv[]) {
 	} else if (strcmp(expansion, "bf") == 0 || strcmp(expansion, "b") == 0) {
 		brainfuck_to_c(content, file);
 	} else if (strcmp(expansion, "ook") == 0 || strcmp(expansion, "ok") == 0) {
-		ook(content);
+		brainfuck_to_c(ook2bf(content), file);
 	} else if (strcmp(expansion, "sp") == 0) {
-		spoon(content);
+		brainfuck_to_c(spoon2bf(content), file);
 	} else {
 		hq9(content);
 	}
