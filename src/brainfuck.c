@@ -62,3 +62,36 @@ void brainfuck(char *commands) {
       scanf("%d", &buffer[pointer]);
   } while (*(p++));
 }
+
+/*
+ * Converts brainfuck commands to C code.
+ *
+ * @param commands Contain brainfuck commands.
+ * @param file Contain file pointer for output file.
+ */
+void brainfuck_to_c(char *commands, FILE *file) {
+	const char *p = commands;
+	fprintf(file, "#include <stdio.h>\n");
+	fprintf(file, "int main() {\n");
+	fprintf(file, "\tint buffer[30000];\n");
+	fprintf(file, "\tint pointer = 0;\n");
+	do {
+		if (*p == '+')
+			fprintf(file, "\tbuffer[pointer]++;\n");
+		if (*p == '-')
+			fprintf(file, "\tbuffer[pointer]--;\n");
+		if (*p == '>')
+			fprintf(file, "\tpointer++;\n");
+		if (*p == '<')
+			fprintf(file, "\tpointer--;\n");
+		if (*p == '.')
+			fprintf(file, "\tputchar(buffer[pointer]);\n");
+		if (*p == ',')
+			fprintf(file, "\tscanf(\"%%d\", &buffer[pointer]);\n");
+		if (*p == '[')
+			fprintf(file, "\twhile(buffer[pointer]) {\n");
+		if (*p == ']')
+			fprintf(file, "\t}\n");
+	} while (*(p++));
+	fprintf(file, "}");
+}

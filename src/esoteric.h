@@ -36,6 +36,8 @@ void malbolge(char *);
 char *ook2bf(char *);
 char *spoon2bf(char *);
 
+void brainfuck_to_c(char *, FILE *);
+
 char *get_file_expansion(char *);
 char *read_file(char *);
 

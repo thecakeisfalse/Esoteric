@@ -20,10 +20,11 @@
 int main(int argc, char *argv[]) {
 	char *expansion = get_file_expansion(argv[argc-1]);
 	char *content = read_file(argv[argc-1]);
+	FILE *file = fopen("output.c", "w");
 	if (strcmp(expansion, "mal") == 0 || strcmp(expansion, "mb") == 0) {
 		malbolge(content);
 	} else if (strcmp(expansion, "bf") == 0 || strcmp(expansion, "b") == 0) {
-		brainfuck(content);
+		brainfuck_to_c(content, file);
 	} else if (strcmp(expansion, "ook") == 0 || strcmp(expansion, "ok") == 0) {
 		ook(content);
 	} else if (strcmp(expansion, "sp") == 0) {
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]) {
 	} else {
 		hq9(content);
 	}
+	fclose(file);
 	return 0;
 }
 
