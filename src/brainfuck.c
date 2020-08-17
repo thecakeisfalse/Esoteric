@@ -23,7 +23,7 @@
  * @param commands Contain brainfuck commands.
  */
 void brainfuck(char *commands) {
-	const char *p = commands;
+  const char *p = commands;
   int buffer[30000];
   int pointer = 0;
   int counter = 1;
