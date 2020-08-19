@@ -59,7 +59,7 @@ void brainfuck(char *commands) {
     if (*p == '.')
       putchar(buffer[pointer]);
     if (*p == ',')
-      scanf("%d", &buffer[pointer]);
+      buffer[pointer] = (int)fgetc(stdin);
   } while (*(p++));
 }
 
