@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
  */
 char *get_file_name(char *filename) {
 	unsigned int start = 0, stop;
-	char *temp;
+	char *temp = (char *)malloc(sizeof(char)*1024);
 	strcpy(temp, filename);
 	for (stop = 0; temp[stop]; stop++) {
 		if (temp[stop] == '.') {
