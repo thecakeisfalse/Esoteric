@@ -101,12 +101,12 @@ void malbolge(char *commands) {
 		if (mem[c] >= 33 && mem[c] <= 126)
 			mem[c] = ENCRYPT[mem[c] - 33];
 
-		if (c == 59049-1)
+		if (c == 59048)
 			c = 0;
 		else
 			c++;
 
-		if (d == 59049-1)
+		if (d == 59048)
 			d = 0;
 		else
 			d++;
