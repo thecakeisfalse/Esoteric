@@ -38,7 +38,6 @@ int main(int argc, char *argv[]) {
 	} else {
 		hq9(content);
 	}
-	free(filename);
 	return 0;
 }
 
