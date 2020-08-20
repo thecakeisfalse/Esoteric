@@ -20,27 +20,57 @@
 int main(int argc, char *argv[]) {
 	char *expansion = get_file_expansion(argv[argc-1]);
 	char *content = read_file(argv[argc-1]);
-	FILE *file = fopen("output.c", "w");
+	char *filename = get_file_name(argv[argc-1]);
 	if (strcmp(expansion, "mal") == 0 || strcmp(expansion, "mb") == 0) {
 		malbolge(content);
 	} else if (strcmp(expansion, "bf") == 0 || strcmp(expansion, "b") == 0) {
+		FILE *file = fopen(filename, "w+");
 		brainfuck_to_c(content, file);
+		fclose(file);
 	} else if (strcmp(expansion, "ook") == 0 || strcmp(expansion, "ok") == 0) {
+		FILE *file = fopen(filename, "w+");
 		brainfuck_to_c(ook2bf(content), file);
+		fclose(file);
 	} else if (strcmp(expansion, "sp") == 0) {
+		FILE *file = fopen(filename, "w+");
 		brainfuck_to_c(spoon2bf(content), file);
+		fclose(file);
 	} else {
 		hq9(content);
 	}
-	fclose(file);
 	return 0;
+}
+
+/*
+ * Get file name.
+ *
+ * @param filename Name of the file.
+ * @return File name.
+ */
+char *get_file_name(char *filename) {
+	unsigned int start = 0, stop;
+	char *temp;
+	strcpy(temp, filename);
+	for (stop = 0; temp[stop]; stop++) {
+		if (temp[stop] == '.') {
+			start = stop;
+		}
+	}
+	temp[start] = 0;
+	for (stop = 0; temp[stop]; stop++) {
+		if (temp[stop] == '/') {
+			start = stop;
+		}
+	}
+	strcat(temp, ".c");
+	return temp+start+1;
 }
 
 /*
  * Get file extension.
  *
- * @param commands Name of the file.
- * @returh File extension.
+ * @param filename Name of the file.
+ * @return File extension.
  */
 char *get_file_expansion(char *filename) {
 	unsigned int start = 0, stop;
