@@ -59,8 +59,10 @@ void malbolge(char *commands) {
 	long v = 0;
 	size_t i = 0;
 	while (i < strlen(commands)) {
-		if (commands[i] == ' ' || commands[i] == '\n')
+		if (commands[i] == ' ' || commands[i] == '\n') {
+			i++;
 			continue;
+		}
 		if (!is_valid_opcode(commands[i], pointer)) {
 			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'", i, i, commands[i], commands[i]);
 		}
@@ -99,12 +101,12 @@ void malbolge(char *commands) {
 		if (mem[c] >= 33 && mem[c] <= 126)
 			mem[c] = ENCRYPT[mem[c] - 33];
 
-		if (c == 59049-1)
+		if (c == 59048)
 			c = 0;
 		else
 			c++;
 
-		if (d == 59049-1)
+		if (d == 59048)
 			d = 0;
 		else
 			d++;

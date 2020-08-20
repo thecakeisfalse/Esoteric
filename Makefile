@@ -1,7 +1,7 @@
 # Makefile
 
 CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror -pedantic-errors -std=c89
+CFLAGS  := -Wall -Wextra -Werror -pedantic-errors -std=c89 -g
 
 SOURCES += $(shell find -name "*.c" -type f -print)
 OBJS    := $(patsubst %.c, %.o, $(SOURCES))
