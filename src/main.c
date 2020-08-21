@@ -18,9 +18,20 @@
 #include "esoteric.h"
 
 int main(int argc, char *argv[]) {
-	char *expansion = get_file_expansion(argv[argc-1]);
-	char *content = read_file(argv[argc-1]);
-	char *filename = get_file_name(argv[argc-1]);
+	char *expansion;
+	char *filename;
+	char *content;
+	if (argc < 2) {
+		printf("Usage: %s <filename>\n", argv[0]);
+		return 0;
+	}
+	if (!file_exists(argv[1])) {
+		perror(argv[1]);
+		return 1;
+	}
+	content = read_file(argv[1]);
+	expansion = get_file_expansion(argv[1]);
+	filename = get_file_name(argv[1]);
 	if (strcmp(expansion, "mal") == 0 || strcmp(expansion, "mb") == 0) {
 		malbolge(content);
 	} else if (strcmp(expansion, "bf") == 0 || strcmp(expansion, "b") == 0) {
@@ -42,6 +53,17 @@ int main(int argc, char *argv[]) {
 }
 
 /*
+ * Check if a file exists
+ *
+ * @param filename Name of the file.
+ * @return 1 if the file exists otherwise return 0.
+ */
+int file_exists(char *filename) {
+	struct stat st;
+	return stat(filename, &st) == 0;
+}
+
+/*
  * Get file name.
  *
  * @param filename Name of the file.
@@ -57,13 +79,14 @@ char *get_file_name(char *filename) {
 		}
 	}
 	temp[start] = 0;
+	start = 0;
 	for (stop = 0; temp[stop]; stop++) {
 		if (temp[stop] == '/') {
-			start = stop;
+			start = stop+1;
 		}
 	}
 	strcat(temp, ".c");
-	return temp+start+1;
+	return temp+start;
 }
 
 /*

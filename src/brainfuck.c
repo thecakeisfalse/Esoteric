@@ -78,7 +78,7 @@ void brainfuck(char *commands) {
    fprintf(file, "\tint buffer[30000];\n");
    fprintf(file, "\tint pointer = 0;\n");
    do {
-     if (*p != '[' && *p != ']' && *p != '.' && *p != ',') {
+     if (*p == '<' || *p == '>' || *p == '-' || *p == '+') {
        do {
          count++;
          previous = *p;

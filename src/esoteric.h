@@ -22,6 +22,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <sys/stat.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,6 +39,7 @@ char *spoon2bf(char *);
 
 void brainfuck_to_c(char *, FILE *);
 
+int file_exists(char *);
 char *get_file_name(char *);
 char *get_file_expansion(char *);
 char *read_file(char *);
