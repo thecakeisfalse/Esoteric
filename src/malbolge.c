@@ -58,16 +58,17 @@ void malbolge(char *commands) {
 	long a = 0, c = 0, d = 0;
 	long v = 0;
 	size_t i = 0;
+	if (strlen(commands) >= 59049) {
+		printf("[ERROR] Souce is too long!\n");
+		return;
+	}
 	while (i < strlen(commands)) {
 		if (commands[i] == ' ' || commands[i] == '\n') {
 			i++;
 			continue;
 		}
 		if (!is_valid_opcode(commands[i], pointer)) {
-			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'", i, i, commands[i], commands[i]);
-		}
-		if (pointer == 59049) {
-			printf("[ERROR] Source is too long!");
+			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'\n", i, i, commands[i], commands[i]);
 		}
 		mem[pointer] = (int)commands[i];
 		pointer++;
