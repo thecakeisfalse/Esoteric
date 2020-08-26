@@ -23,12 +23,10 @@ There are apt packages, needed by Esoteric
 
 To download Esoteric you need to do next commands.
 
-```sh
-git clone https://github.com/thecaketeam/Esoteric
-cd esoteric
-make
-sudo make install
-```
+    git clone https://github.com/thecaketeam/Esoteric
+    cd esoteric
+    make
+    sudo make install
 
 After it, you can use esoteric.
 
@@ -36,9 +34,7 @@ After it, you can use esoteric.
 
 To run esoteric you need to do next.
 
-```sh
-esoteric <filename>
-```
+    esoteric <filename>
 
 If you are using Malbolge or HQ9+, it will return output of commands. Otherwise it will generate C code output that you need to compile to use.
 
