@@ -27,6 +27,7 @@ void brainfuck(char *commands) {
   int buffer[30000];
   int pointer = 0;
   int counter = 1;
+  memset(buffer, 0, sizeof(buffer));
   do {
     if (*p == '[') {
       if (buffer[pointer] == 0) {
@@ -56,10 +57,15 @@ void brainfuck(char *commands) {
       pointer--;
     if (*p == '>')
       pointer++;
-    if (*p == '.')
+    if (*p == '.') {
       putchar(buffer[pointer]);
-    if (*p == ',')
-      buffer[pointer] = (int)fgetc(stdin);
+    }
+    if (*p == ',') {
+      if (pointer < 30000) {
+        scanf("%d", &buffer[pointer]);
+        buffer[pointer] += 48;
+      }
+    }
   } while (*(p++));
 }
 
