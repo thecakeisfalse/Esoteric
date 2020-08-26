@@ -23,7 +23,7 @@ There are apt packages, needed by Esoteric
 
 To download Esoteric you need to do next commands.
 
-```bash
+```sh
 git clone https://github.com/thecaketeam/Esoteric
 cd esoteric
 make
@@ -36,7 +36,7 @@ After it, you can use esoteric.
 
 To run esoteric you need to do next.
 
-```bash
+```sh
 esoteric <filename>
 ```
 
