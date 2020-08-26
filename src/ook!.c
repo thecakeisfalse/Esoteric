@@ -20,8 +20,8 @@
 char *ook2bf(char *commands) {
 	size_t i, j;
 
-	size_t commands_length = (strlen(commands) < 59049 ? strlen(commands) : 59049);
-	size_t estimated_length = commands_length / 5;
+	size_t commands_length = 59049;
+	size_t estimated_length = 1024;
 	size_t real_buffer_length = 0;
 
 	char *buffer = malloc(sizeof(char)*estimated_length);
@@ -30,7 +30,7 @@ char *ook2bf(char *commands) {
 	memset(buffer, 0, sizeof(char)*estimated_length);
 	memset(text, 0, sizeof(char)*estimated_length);
 
-	for (i = 0, j = 0; i < commands_length; i++) {
+	for (i = 0, j = 0; i < commands_length && commands[i] != '\0'; i++) {
 		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?') {
 			buffer[j++] = commands[i];
 		}

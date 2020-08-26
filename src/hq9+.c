@@ -25,7 +25,7 @@
 void hq9(char *commands) {
 	int accumulator = 0;
 	size_t i, j;
-	for (i = 0; i < strlen(commands); i++) {
+	for (i = 0; i < 59048; i++) {
 		if (commands[i] == 'H') {
 			printf("Hello, world!\n");
 		} else if (commands[i] == 'Q') {

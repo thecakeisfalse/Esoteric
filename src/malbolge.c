@@ -57,12 +57,12 @@ void malbolge(char *commands) {
 	size_t i = 0;
 	long pointer = 0;
 	long a = 0, c = 0, d = 0, v = 0;
-	size_t length = (strlen(commands) < 59049 ? strlen(commands) : 59049);
-	if (length >= 59049) {
+	size_t length = 59049;
+	if (commands[length]) {
 		printf("[ERROR] Souce is too long!\n");
 		return;
 	}
-	for (i = 0, pointer = 0; i < length; i++, pointer++) {
+	for (i = 0, pointer = 0; i < length && commands[i] != '\0'; i++, pointer++) {
 		if (commands[i] == ' ' || commands[i] == '\n') {
 			continue;
 		}
