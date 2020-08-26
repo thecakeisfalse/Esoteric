@@ -24,9 +24,8 @@
  */
 void hq9(char *commands) {
 	int accumulator = 0;
-	size_t i = 0;
-	int j = 0;
-	while (i < strlen(commands)) {
+	size_t i, j;
+	for (i = 0; i < strlen(commands); i++) {
 		if (commands[i] == 'H') {
 			printf("Hello, world!\n");
 		} else if (commands[i] == 'Q') {
@@ -34,16 +33,15 @@ void hq9(char *commands) {
 		} else if (commands[i] == '9') {
 			j = 99;
 			while (j > 1) {
-				printf("%d bottles of beer on the wall,\n", j);
-				printf("%d bottles of beer.\n", j);
+				printf("%ld bottles of beer on the wall,\n", j);
+				printf("%ld bottles of beer.\n", j);
 				printf("Take one down, pass it around,\n");
-				printf("%d bottles of beer on the wall.\n\n", j - 1);
+				printf("%ld bottles of beer on the wall.\n\n", j - 1);
 				j--;
 			}
 			printf("1 bottle of beer on the wall,\n1 bottle of beer.\nTake one down, pass it around,\nno more bottles of beer on the wall.\n");
 		} else if (commands[i] == '+') {
 			accumulator++;
 		}
-		i++;
 	}
 }

@@ -54,25 +54,23 @@ bool is_valid_opcode(char c, int pointer) {
 }
 
 void malbolge(char *commands) {
-	long pointer = 0;
-	long a = 0, c = 0, d = 0;
-	long v = 0;
 	size_t i = 0;
-	if (strlen(commands) >= 59049) {
+	long pointer = 0;
+	long a = 0, c = 0, d = 0, v = 0;
+	size_t length = (strlen(commands) < 59049 ? strlen(commands) : 59049);
+	if (length >= 59049) {
 		printf("[ERROR] Souce is too long!\n");
 		return;
 	}
-	while (i < strlen(commands)) {
+	for (i = 0, pointer = 0; i < length; i++, pointer++) {
 		if (commands[i] == ' ' || commands[i] == '\n') {
-			i++;
 			continue;
 		}
 		if (!is_valid_opcode(commands[i], pointer)) {
 			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'\n", i, i, commands[i], commands[i]);
+			return;
 		}
 		mem[pointer] = (int)commands[i];
-		pointer++;
-		i++;
 	}
 
 	while (pointer < 59049) {

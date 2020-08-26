@@ -18,49 +18,46 @@
 #include "esoteric.h"
 
 char *ook2bf(char *commands) {
-	int length = (strlen(commands) + 1) / 10;
-	size_t i = 0, j = 0;
-	char *buf = malloc(sizeof(char)*length*2);
-	char *text = malloc(sizeof(char)*length);
-	size_t len = strlen(commands);
-	memset(text, 0, sizeof(char)*length);
-	while (i < len) {
-		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?')
-			buf[j++] = commands[i];
-		buf[j] = 0;
-		i++;
-	}
-	j = i = 0;
-	while (i < strlen(buf)) {
-		if(buf[i] == '.') {
-			i++;
-			if (buf[i] == '.') {
-				text[j++] = '+';
-			} else if (buf[i] == '?') {
-				text[j++] = '>';
-			} else if (buf[i] == '!') {
-				text[j++] = ',';
-			}
-		} else if (buf[i] == '?') {
-			i++;
-			if (buf[i] == '.') {
-				text[j++] = '<';
-			} else if (buf[i] == '!') {
-				text[j++] = ']';
-			}
-		} else if (buf[i] == '!') {
-			i++;
-			if (buf[i] == '.') {
-				text[j++] = '.';
-			} else if (buf[i] == '?') {
-				text[j++] = '[';
-			} else if (buf[i] == '!') {
-				text[j++] = '-';
-			}
+	size_t i, j;
+
+	size_t commands_length = (strlen(commands) < 59049 ? strlen(commands) : 59049);
+	size_t estimated_length = commands_length / 5;
+	size_t real_buffer_length = 0;
+
+	char *buffer = malloc(sizeof(char)*estimated_length);
+	char *text = malloc(sizeof(char)*estimated_length);
+
+	memset(buffer, 0, sizeof(char)*estimated_length);
+	memset(text, 0, sizeof(char)*estimated_length);
+
+	for (i = 0, j = 0; i < commands_length; i++) {
+		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?') {
+			buffer[j++] = commands[i];
 		}
-		i++;
+		buffer[j] = 0;
 	}
-	free(buf);
+
+	real_buffer_length = j;
+	for (i = 0, j = 0; i < real_buffer_length; i += 2) {
+		if (strncmp(buffer+i, "..", 2) == 0) {
+			text[j++] = '+';
+		} else if (strncmp(buffer+i, ".?", 2) == 0) {
+			text[j++] = '>';
+		} else if (strncmp(buffer+i, ".!", 2) == 0) {
+			text[j++] = ',';
+		} else if (strncmp(buffer+i, "?.", 2) == 0) {
+			text[j++] = '<';
+		} else if (strncmp(buffer+i, "?!", 2) == 0) {
+			text[j++] = ']';
+		} else if (strncmp(buffer+i, "!.", 2) == 0) {
+			text[j++] = '.';
+		} else if (strncmp(buffer+i, "!?", 2) == 0) {
+			text[j++] = '[';
+		} else if (strncmp(buffer+i, "!!", 2) == 0) {
+			text[j++] = '-';
+		}
+	}
+	free(buffer);
 	return text;
 }
 

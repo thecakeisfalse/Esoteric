@@ -120,7 +120,9 @@ char *read_file(char *filename) {
 	size = ftell(file);
 	rewind(file);
 	buffer = (char*)malloc(sizeof(char)*size);
+	memset(buffer, 0, sizeof(char)*size);
 	fread(buffer, size, sizeof(char), file);
 	fclose(file);
+	buffer[size] = 0;
 	return buffer;
 }

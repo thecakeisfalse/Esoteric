@@ -18,9 +18,10 @@
 #include "esoteric.h"
 
 char *spoon2bf(char *commands) {
-	char *buf = malloc(sizeof(char)*strlen(commands));
-	size_t i = 0, j = 0;
-	while (i < strlen(commands)) {
+	size_t length = sizeof(commands) / 2;
+	char *buf = malloc(sizeof(char)*length);
+	size_t i, j;
+	for (i = 0, j = 0; i < length; i++) {
 		if (commands[i] == '1') {
 			buf[j++] = '+';
 		} else if (commands[i] == '0') {
