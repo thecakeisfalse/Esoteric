@@ -54,7 +54,6 @@ bool is_valid_opcode(char c, int pointer) {
 }
 
 void malbolge(char *commands) {
-	char v;
 	size_t i = 0;
 	long pointer = 0;
 	long a = 0, c = 0, d = 0;
@@ -82,20 +81,19 @@ void malbolge(char *commands) {
 	while (1) {
 		if (mem[c] < 33 || mem[c] > 126)
 			return;
-		v = (mem[c] + c) % 94;
-		if (v == 4)
+		if ((mem[c] + c) % 94 == 4)
 			c = mem[d];
-		else if (v == 5)
+		else if ((mem[c] + c) % 94 == 5)
 			printf("%c", (int)(a % 256));
-		else if (v == 23)
+		else if ((mem[c] + c) % 94 == 23)
 			scanf("%ld", &a);
-		else if (v == 39)
+		else if ((mem[c] + c) % 94 == 39)
 			a = mem[d] = rotate(mem[d]);
-		else if (v == 40)
+		else if ((mem[c] + c) % 94 == 40)
 			d = mem[d];
-		else if (v == 62)
+		else if ((mem[c] + c) % 94 == 62)
 			a = mem[d] = crazy(a, mem[d]);
-		else if (v == 81)
+		else if ((mem[c] + c) % 94 == 81)
 			break;
 
 		if (mem[c] >= 33 && mem[c] <= 126)
