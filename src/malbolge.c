@@ -54,9 +54,10 @@ bool is_valid_opcode(char c, int pointer) {
 }
 
 void malbolge(char *commands) {
+	int v = 0;
 	size_t i = 0;
 	long pointer = 0;
-	long a = 0, c = 0, d = 0, v = 0;
+	long a = 0, c = 0, d = 0;
 	size_t length = 59049;
 	if (commands[length]) {
 		printf("[ERROR] Souce is too long!\n");
