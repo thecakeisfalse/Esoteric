@@ -4,7 +4,7 @@ Esoteric - a simple interpreter for esoteric languages, written in C.
 
 ## Summary
 
--   [Getting Started](#getting\-started)
+-   [Getting Started](#getting-started)
 -   [Authors](#authors)
 -   [License](#license)
 -   [Acknowledgments](#acknowledgments)
@@ -23,7 +23,7 @@ There are apt packages, needed by Esoteric
 
 To download Esoteric
 
-```bash
+```
 git clone https://github.com/thecaketeam/Esoteric
 cd esoteric
 make
@@ -31,13 +31,13 @@ make
 
 ### How to run
 
-```bash
+```
 ./esoteric <filename>
 ```
 
 ## Authors
 
--   **Simon Chaykin** \- *Main developer*
+-   **Simon Chaykin** - *Main developer*
 
 ## License
 
