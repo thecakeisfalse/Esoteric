@@ -54,7 +54,7 @@ bool is_valid_opcode(char c, int pointer) {
 }
 
 void malbolge(char *commands) {
-	int v = 0;
+	char v = 0;
 	size_t i = 0;
 	long pointer = 0;
 	long a = 0, c = 0, d = 0;
