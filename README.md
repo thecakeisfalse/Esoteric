@@ -4,10 +4,10 @@ Esoteric - a simple interpreter for esoteric languages, written in C.
 
 ## Summary
 
-  - [Getting Started](#getting-started)
-  - [Authors](#authors)
-  - [License](#license)
-  - [Acknowledgments](#acknowledgments)
+- [Getting Started](#getting-started)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ make
 
 ## Authors
 
-  - **Simon Chaykin** - *Main developer*
+- **Simon Chaykin** \- *Main developer*
 
 ## License
 
@@ -45,4 +45,4 @@ This project is licensed under the [GNU GPL v3.0 LICENSE](LICENSE).
 
 ## Acknowledgments
 
-  - [https://esolangs.org](https://esolangs.org/wiki/Main_Page)
+- [https://esolangs.org](https://esolangs.org/wiki/Main_Page)
