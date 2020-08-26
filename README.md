@@ -4,7 +4,7 @@ Esoteric - a simple interpreter for esoteric languages, written in C.
 
 ## Summary
 
-- [Getting Started](#getting-started)
+- [Getting Started](#getting\-started)
 - [Authors](#authors)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
