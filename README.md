@@ -19,21 +19,28 @@ There are apt packages, needed by Esoteric
 
     gcc, make
 
-### Downloading
+### Download
 
-To download Esoteric
+To download Esoteric you need to do next commands.
 
-```
+```bash
 git clone https://github.com/thecaketeam/Esoteric
 cd esoteric
 make
+sudo make install
 ```
 
-### How to run
+After it, you can use esoteric.
 
+### Running
+
+To run esoteric you need to do next.
+
+```bash
+esoteric <filename>
 ```
-./esoteric <filename>
-```
+
+If you are using Malbolge or HQ9+, it will return output of commands. Otherwise it will generate C code output that you need to compile to use.
 
 ## Authors
 
