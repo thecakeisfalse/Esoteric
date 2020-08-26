@@ -67,7 +67,7 @@ void malbolge(char *commands) {
 			continue;
 		}
 		if (!is_valid_opcode(commands[i], pointer)) {
-			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'\n", i, i, commands[i], commands[i]);
+			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'\n", (long)i, (long)i, commands[i], commands[i]);
 			return;
 		}
 		mem[pointer] = (int)commands[i];

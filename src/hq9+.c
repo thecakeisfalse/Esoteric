@@ -33,10 +33,10 @@ void hq9(char *commands) {
 		} else if (commands[i] == '9') {
 			j = 99;
 			while (j > 1) {
-				printf("%ld bottles of beer on the wall,\n", j);
-				printf("%ld bottles of beer.\n", j);
+				printf("%ld bottles of beer on the wall,\n", (long)j);
+				printf("%ld bottles of beer.\n", (long)j);
 				printf("Take one down, pass it around,\n");
-				printf("%ld bottles of beer on the wall.\n\n", j - 1);
+				printf("%ld bottles of beer on the wall.\n\n", (long)(j - 1));
 				j--;
 			}
 			printf("1 bottle of beer on the wall,\n1 bottle of beer.\nTake one down, pass it around,\nno more bottles of beer on the wall.\n");
