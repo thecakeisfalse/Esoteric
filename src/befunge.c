@@ -85,7 +85,7 @@ void befunge(char __attribute__((unused)) *commands) {
       a = stack[--stack_pointer];
       b = stack[--stack_pointer];
       stack[stack_pointer++] = a;
-      stack[stack_pointer++] = a;
+      stack[stack_pointer++] = b;
     } else if (display[y][x] == '#' && !symbol_mode) {
       if (vector == 1) {
         y -= 1;
