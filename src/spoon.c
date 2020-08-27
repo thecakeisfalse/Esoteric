@@ -22,42 +22,32 @@ char *spoon2bf(char *commands) {
 	char *buf = malloc(sizeof(char)*length);
 	size_t i, j;
 	for (i = 0, j = 0; i < length; i++) {
-		if (commands[i] == '1') {
+		if (strncmp(commands+i, "1", 1) == 0) {
 			buf[j++] = '+';
-		} else if (commands[i] == '0') {
-			i++;
-			if (commands[i] == '0') {
-				i++;
-				if (commands[i] == '0') {
-					buf[j++] = '-';
-				} else if (commands[i] == '1') {
-					i++;
-					if (commands[i] == '0') {
-						i++;
-						if (commands[i] == '0') {
-							buf[j++] = '[';
-						} else if (commands[i] == '1') {
-							i++;
-							if (commands[i] == '0') {
-								buf[j++] = '.';
-							} else if (commands[i] == '1') {
-								buf[j++] = ',';
-							}
-						}
-					} else if (commands[i] == '1') {
-						buf[j++] = ']';
-					}
-				}
-			} else if (commands[i] == '1') {
-				i++;
-				if (commands[i] == '0') {
-					buf[j++] = '>';
-				} else if (commands[i] == '1') {
-					buf[j++] = '<';
-				}
-			}
+		} else if (strncmp(commands+i, "000", 3) == 0) {
+			buf[j++] = '-';
+			i += 2;
+		} else if (strncmp(commands+i, "010", 3) == 0) {
+			buf[j++] = '>';
+			i += 2;
+		} else if (strncmp(commands+i, "011", 3) == 0) {
+			buf[j++] = '<';
+			i += 2;
+		} else if (strncmp(commands+i, "00100", 5) == 0) {
+			buf[j++] = '[';
+			i += 4;
+		} else if (strncmp(commands+i, "0011", 4) == 0) {
+			buf[j++] = ']';
+			i += 3;
+		} else if (strncmp(commands+i, "0010110", 7) == 0) {
+			buf[j++] = ',';
+			i += 6;
+		} else if (strncmp(commands+i, "001010", 6) == 0) {
+			buf[j++] = '.';
+			i += 5;
 		}
 	}
+	printf("%s\n", buf);
 	return buf;
 }
 
