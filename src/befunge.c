@@ -26,15 +26,12 @@ void befunge(char __attribute__((unused)) *commands) {
   int stack[1024];
   int symbol_mode = 0;
   int stack_pointer = 0;
-  size_t size = strlen(commands) + 1;
-  char *str = (char*)malloc(sizeof(char)*size);
-  memcpy(str, commands, size);
   memset(stack, 0, sizeof(int)*1024);
   for (i = 0; i < 25; i++) {
     display[i] = (char *)malloc(sizeof(char)*80);
     memset(display[i], 0, sizeof(char)*80);
     if (i == 0) {
-      display[i] = strtok(str, "\n");
+      display[i] = strtok(commands, "\n");
     } else {
       display[i] = strtok(NULL, "\n");
     }
