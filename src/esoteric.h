@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <sys/stat.h>
+#include <ctype.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,6 +34,7 @@ void ook(char *);
 void brainfuck(char *);
 void spoon(char *);
 void malbolge(char *);
+void befunge(char *);
 
 char *ook2bf(char *);
 char *spoon2bf(char *);

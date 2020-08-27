@@ -46,6 +46,8 @@ int main(int argc, char *argv[]) {
 		FILE *file = fopen(filename, "w+");
 		brainfuck_to_c(spoon2bf(content), file);
 		fclose(file);
+	} else if (strcmp(expansion, "be") == 0 || strcmp(expansion, "befunge") == 0) {
+		befunge(content);
 	} else {
 		hq9(content);
 	}
