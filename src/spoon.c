@@ -18,7 +18,7 @@
 #include "esoteric.h"
 
 char *spoon2bf(char *commands) {
-	size_t length = sizeof(commands) / 2;
+	size_t length = 59049;
 	char *buf = malloc(sizeof(char)*length);
 	size_t i, j;
 	for (i = 0, j = 0; i < length; i++) {
@@ -57,7 +57,6 @@ char *spoon2bf(char *commands) {
 				}
 			}
 		}
-		i++;
 	}
 	return buf;
 }

@@ -43,14 +43,14 @@ long crazy(long a, long b) {
 	return result;
 }
 
-bool is_valid_opcode(char c, int pointer) {
+int is_valid_opcode(char c, int pointer) {
 	int i = 0;
 	while (i < 8) {
 		if (((int)c + pointer) % 94 == OPCODES_VALID[i])
-			return true;
+			return 1;
 		i++;
 	}
-	return false;
+	return 0;
 }
 
 void malbolge(char *commands) {
