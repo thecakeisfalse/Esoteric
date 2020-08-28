@@ -9,3 +9,4 @@ The table below shows the full list of supported languages.
 | Malbolge  | [malbolge.c](src/malbolge.c)   |
 | Ook!      | [ook!.c](src/ook!.c)           |
 | Spoon     | [spoon.c](src/spoon.c)         |
+| Befunge   | [befunge.c](src/befunge.c)     |
