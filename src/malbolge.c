@@ -8,11 +8,11 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
 #include "esoteric.h"
@@ -28,14 +28,17 @@ int OPCODES_VALID[] = {4, 5, 23, 39, 40, 62, 68, 81};
 
 long mem[59049];
 
-long rotate(long n) {
+long rotate(long n)
+{
 	return 19683*(n%3) + n/3;
 }
 
-long crazy(long a, long b) {
+long crazy(long a, long b)
+{
 	long result = 0, d = 1;
 	int i = 0;
-	while (i < 10) {
+	while (i < 10)
+	{
 		result += TABLE_CRAZY[(int)((b/d)%3)][(int)((a/d)%3)] * d;
 		d *= 3;
 		i++;
@@ -43,9 +46,11 @@ long crazy(long a, long b) {
 	return result;
 }
 
-int is_valid_opcode(char c, int pointer) {
+int is_valid_opcode(char c, int pointer)
+{
 	int i = 0;
-	while (i < 8) {
+	while (i < 8)
+	{
 		if (((int)c + pointer) % 94 == OPCODES_VALID[i])
 			return 1;
 		i++;
@@ -53,32 +58,44 @@ int is_valid_opcode(char c, int pointer) {
 	return 0;
 }
 
-void malbolge(char *commands) {
+/*
+ * Interpreters Malbolge commands.
+ *
+ * @param commands Contain malbolge commands.
+ */
+void malbolge(char *commands)
+{
 	size_t i = 0;
 	long pointer = 0;
 	long a = 0, c = 0, d = 0;
 	size_t length = 59049;
-	if (commands[length]) {
+	if (commands[length])
+	{
 		printf("[ERROR] Souce is too long!\n");
 		return;
 	}
-	for (i = 0, pointer = 0; i < length && commands[i] != '\0'; i++, pointer++) {
-		if (commands[i] == ' ' || commands[i] == '\n') {
+	for (i = 0, pointer = 0; i < length && commands[i] != '\0'; i++, pointer++)
+	{
+		if (commands[i] == ' ' || commands[i] == '\n')
+		{
 			continue;
 		}
-		if (!is_valid_opcode(commands[i], pointer)) {
+		if (!is_valid_opcode(commands[i], pointer))
+		{
 			printf("[ERROR] Invalid character! i=%ld commands[%ld]=%d='%c'\n", (long)i, (long)i, commands[i], commands[i]);
 			return;
 		}
 		mem[pointer] = (int)commands[i];
 	}
 
-	while (pointer < 59049) {
+	while (pointer < 59049)
+	{
 		mem[pointer] = crazy(mem[pointer-1], mem[pointer-2]);
 		pointer++;
 	}
 
-	while (1) {
+	while (1)
+	{
 		if (mem[c] < 33 || mem[c] > 126)
 			return;
 		if ((mem[c] + c) % 94 == 4)

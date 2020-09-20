@@ -8,11 +8,11 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
 #include "esoteric.h"
@@ -22,17 +22,24 @@
  *
  * @param commands Contain HQ9+ commands.
  */
-void hq9(char *commands) {
+void hq9(char *commands)
+{
 	int accumulator = 0;
 	size_t i, j;
 	for (i = 0; i < 59048; i++) {
-		if (commands[i] == 'H') {
+		if (commands[i] == 'H')
+		{
 			printf("Hello, world!\n");
-		} else if (commands[i] == 'Q') {
+		}
+		else if (commands[i] == 'Q')
+		{
 			printf("%s\n", commands);
-		} else if (commands[i] == '9') {
+		}
+		else if (commands[i] == '9')
+		{
 			j = 99;
-			while (j > 1) {
+			while (j > 1)
+			{
 				printf("%ld bottles of beer on the wall,\n", (long)j);
 				printf("%ld bottles of beer.\n", (long)j);
 				printf("Take one down, pass it around,\n");
@@ -40,7 +47,9 @@ void hq9(char *commands) {
 				j--;
 			}
 			printf("1 bottle of beer on the wall,\n1 bottle of beer.\nTake one down, pass it around,\nno more bottles of beer on the wall.\n");
-		} else if (commands[i] == '+') {
+		}
+		else if (commands[i] == '+')
+		{
 			accumulator++;
 		}
 	}

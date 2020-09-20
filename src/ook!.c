@@ -8,7 +8,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -17,7 +17,14 @@
 
 #include "esoteric.h"
 
-char *ook2bf(char *commands) {
+/*
+ * Converts Ook! commands to brainfuck.
+ *
+ * @param commands Contain Ook! commands.
+ */
+
+char *ook2bf(char *commands)
+{
 	size_t i, j;
 
 	size_t commands_length = 59049;
@@ -30,30 +37,48 @@ char *ook2bf(char *commands) {
 	memset(buffer, 0, sizeof(char)*estimated_length);
 	memset(text, 0, sizeof(char)*estimated_length);
 
-	for (i = 0, j = 0; i < commands_length && commands[i] != '\0'; i++) {
-		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?') {
+	for (i = 0, j = 0; i < commands_length && commands[i] != '\0'; i++)
+	{
+		if (commands[i] == '!' || commands[i] == '.' || commands[i] == '?')
+		{
 			buffer[j++] = commands[i];
 		}
 		buffer[j] = 0;
 	}
 
 	real_buffer_length = j;
-	for (i = 0, j = 0; i < real_buffer_length; i += 2) {
-		if (strncmp(buffer+i, "..", 2) == 0) {
+	for (i = 0, j = 0; i < real_buffer_length; i += 2)
+	{
+		if (strncmp(buffer+i, "..", 2) == 0)
+		{
 			text[j++] = '+';
-		} else if (strncmp(buffer+i, ".?", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, ".?", 2) == 0)
+		{
 			text[j++] = '>';
-		} else if (strncmp(buffer+i, ".!", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, ".!", 2) == 0)
+		{
 			text[j++] = ',';
-		} else if (strncmp(buffer+i, "?.", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, "?.", 2) == 0)
+		{
 			text[j++] = '<';
-		} else if (strncmp(buffer+i, "?!", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, "?!", 2) == 0)
+		{
 			text[j++] = ']';
-		} else if (strncmp(buffer+i, "!.", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, "!.", 2) == 0)
+		{
 			text[j++] = '.';
-		} else if (strncmp(buffer+i, "!?", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, "!?", 2) == 0)
+		{
 			text[j++] = '[';
-		} else if (strncmp(buffer+i, "!!", 2) == 0) {
+		}
+		else if (strncmp(buffer+i, "!!", 2) == 0)
+		{
 			text[j++] = '-';
 		}
 	}
@@ -61,7 +86,13 @@ char *ook2bf(char *commands) {
 	return text;
 }
 
-void ook(char *commands) {
+/*
+ * Interpreters Ook! commands.
+ *
+ * @param commands Contain Ook! commands.
+ */
+void ook(char *commands)
+{
 	char *text = ook2bf(commands);
 	brainfuck(text);
 }

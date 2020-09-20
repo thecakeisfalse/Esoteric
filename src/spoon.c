@@ -8,41 +8,63 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
 #include "esoteric.h"
 
-char *spoon2bf(char *commands) {
+/*
+ * Converts Spoon commands to brainfuck.
+ *
+ * @param commands Contain Spoon commands.
+ */
+char *spoon2bf(char *commands)
+{
 	size_t length = 59049;
 	char *buf = malloc(sizeof(char)*length);
 	size_t i, j;
-	for (i = 0, j = 0; i < length; i++) {
-		if (strncmp(commands+i, "1", 1) == 0) {
+	for (i = 0, j = 0; i < length; i++)
+	{
+		if (strncmp(commands+i, "1", 1) == 0)
+		{
 			buf[j++] = '+';
-		} else if (strncmp(commands+i, "000", 3) == 0) {
+		}
+		else if (strncmp(commands+i, "000", 3) == 0)
+		{
 			buf[j++] = '-';
 			i += 2;
-		} else if (strncmp(commands+i, "010", 3) == 0) {
+		}
+		else if (strncmp(commands+i, "010", 3) == 0)
+		{
 			buf[j++] = '>';
 			i += 2;
-		} else if (strncmp(commands+i, "011", 3) == 0) {
+		}
+		else if (strncmp(commands+i, "011", 3) == 0)
+		{
 			buf[j++] = '<';
 			i += 2;
-		} else if (strncmp(commands+i, "00100", 5) == 0) {
+		}
+		else if (strncmp(commands+i, "00100", 5) == 0)
+		{
 			buf[j++] = '[';
 			i += 4;
-		} else if (strncmp(commands+i, "0011", 4) == 0) {
+		}
+		else if (strncmp(commands+i, "0011", 4) == 0)
+		{
 			buf[j++] = ']';
 			i += 3;
-		} else if (strncmp(commands+i, "0010110", 7) == 0) {
+		}
+		else if (strncmp(commands+i, "0010110", 7) == 0)
+		{
 			buf[j++] = ',';
 			i += 6;
-		} else if (strncmp(commands+i, "001010", 6) == 0) {
+		}
+		else if (strncmp(commands+i, "001010", 6) == 0)
+		{
 			buf[j++] = '.';
 			i += 5;
 		}
@@ -51,7 +73,13 @@ char *spoon2bf(char *commands) {
 	return buf;
 }
 
-void spoon(char* commands) {
+/*
+ * Interpreters Spoon commands.
+ *
+ * @param commands Contain Spoon commands.
+ */
+void spoon(char* commands)
+{
 	char* buf = spoon2bf(commands);
 	brainfuck(buf);
 }
