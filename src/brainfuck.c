@@ -88,7 +88,7 @@ void brainfuck_to_c(char *commands, FILE *file)
 	int count = 0;
 	fprintf(file, "#include <stdio.h>\n");
 	fprintf(file, "int main() {\n");
-	fprintf(file, "\tint buffer[30000];\n");
+	fprintf(file, "\tint buffer[30000] = {0};\n");
 	fprintf(file, "\tint pointer = 0;\n");
 	do {
 		if (*p == '<' || *p == '>' || *p == '-' || *p == '+')
