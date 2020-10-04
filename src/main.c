@@ -22,15 +22,21 @@ int main(int argc, char *argv[])
 	char *expansion;
 	char *filename;
 	char *content;
+	struct stat sb;
 	if (argc < 2)
 	{
 		printf("Usage: %s <filename>\n", argv[0]);
 		return 0;
 	}
+	if (stat(argv[1], &sb) == 0 && S_ISDIR(sb.st_mode))
+	{
+		printf("%s: Is a directory\n", argv[1]);
+		return -1;
+	}
 	if (!file_exists(argv[1]))
 	{
 		perror(argv[1]);
-		return 1;
+		return -2;
 	}
 	content = read_file(argv[1]);
 	expansion = get_file_expansion(argv[1]);
