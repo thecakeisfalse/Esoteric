@@ -23,7 +23,7 @@ There are apt packages, needed by Esoteric
 
 To download Esoteric you need to do next commands.
 
-    git clone https://github.com/thecaketeam/Esoteric
+    git clone https://github.com/thecaketeam/esoteric
     cd esoteric
     make
     sudo make install
