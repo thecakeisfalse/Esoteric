@@ -1,15 +1,8 @@
+# CMake gitignore
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
 
-# Prerequisites
-*.d
-
-# Object files
-*.o
-
-# Libraries
-*.a
-
-# Shared objects
-*.so
-
-# Executables
-esoteric
+# Build directory
+build

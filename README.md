@@ -1,6 +1,6 @@
-# Esoteric [![Build Status](https://travis-ci.com/thecaketeam/Esoteric.svg?branch=master)](https://travis-ci.com/thecaketeam/Esoteric)
+# Esoteric
 
-Esoteric - a simple interpreter for esoteric languages, written in C.
+Esoteric - a simple interpreter for esoteric languages, written in C++.
 
 ## Summary
 
@@ -17,26 +17,27 @@ These instructions will get you a copy of the project up and running on your mac
 
 There are apt packages, needed by Esoteric
 
-    gcc, make
+    g++, cmake
 
 ### Download
 
-To download Esoteric you need to do next commands.
+To download esoteric you need to do next commands.
 
     git clone https://github.com/thecaketeam/esoteric
     cd esoteric
-    make
-    sudo make install
+    cmake -B build
+    make -C build
+    sudo make -C build install
 
 After it, you can use esoteric.
 
-### Running
+### Usage
 
-To run esoteric you need to do next.
-
-    esoteric <filename>
-
-If you are using Malbolge or HQ9+, it will return output of commands. Otherwise it will generate C code output that you need to compile to use.
+    Usage: esoteric [options] file...
+    Options:
+      -x <language>    Specify the language of the following input file.
+      -c               Converts input file to C file.
+      -o <file>        Place the output info <file>.
 
 ## Authors
 
