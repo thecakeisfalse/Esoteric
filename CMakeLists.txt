@@ -5,7 +5,7 @@ project(esoteric VERSION 0.0.1)
 
 # setup the C++ compiler
 set(CMAKE_CPP_COMPILER g++)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 13)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set C++ flags
@@ -16,6 +16,7 @@ file(GLOB_RECURSE SOURCES *.cc)
 
 # add the executable
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${INCLUDE})
+set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_STANDARD 14)
 
 # install command
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION /usr/local/bin)

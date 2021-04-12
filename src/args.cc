@@ -18,7 +18,7 @@ map<string, string> args_parse(int argc, char * argv[]) {
 
     args["language"] = "brainfuck";
     args["output_filename"] = "stdout";
-    args["input_filename"] = "stdin";
+    args["input_filename"] = "";
     //args["convert"] = "false";
 
     for (int i = 1; i < argc; i++) {
