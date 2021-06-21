@@ -5,8 +5,6 @@ project(esoteric VERSION 0.0.1)
 
 # setup the C++ compiler
 set(CMAKE_CPP_COMPILER g++)
-set(CMAKE_CXX_STANDARD 13)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set C++ flags
 set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra")
