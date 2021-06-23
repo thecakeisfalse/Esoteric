@@ -1,40 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <sstream>
 #include <vector>
 #include <algorithm>
 #include <sys/stat.h>
 
-using namespace std;
-
-bool file_exists(string filename) {
-    struct stat sb;
-
-    return stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode);
+bool file_exists(std::string filename) {
+    struct stat st;
+    return stat(filename.c_str(), &st) == 0 && S_ISREG(st.st_mode);
 }
 
-string read_file(istream &input) {
-    string line;
-    string text = "";
-
-    while (getline(input, line)) {
-        text += line + "\n";
-    }
-
-    return text;
+std::string read_file(std::istream &input) {
+    std::stringstream ss;
+    while (input >> ss.rdbuf());
+    return ss.str();
 }
 
-string get_only_filename(string filename) {
+std::string get_only_filename(std::string filename) {
     filename = filename.substr(filename.find_last_of("/")+1);
-
     return filename.substr(0, filename.find_first_of("."));
 }
 
-string get_input(istream &input) {
-    string text;
+std::string get_input(std::istream &input) {
+    std::string text;
 
     if (&input == &std::cin) {
-        getline(input, text);
+        std::getline(input, text);
     } else {
         text = read_file(input);
     }
@@ -42,8 +33,8 @@ string get_input(istream &input) {
     return text;
 }
 
-bool can_be_converted(string name) {
-    vector<string> languages = {"brainfuck", "ook!", "spoon"};
-
-    return find(languages.begin(), languages.end(), name) != languages.end();
+int get_file_size(std::string filename) {
+    struct stat st;
+    stat(filename.c_str(), &st);
+    return st.st_size;
 }

@@ -1,16 +1,12 @@
 #include "esoteric.hpp"
-#include <iostream>
 
-using namespace std;
-
-void spoon(istream &input, ostream &output) {
-    string commands = get_input(input);
-
+void spoon(std::istream &input, std::ostream &output) {
+    std::string commands = get_input(input);
     spoon(commands, output);
 }
 
-void spoon(string commands, ostream &output) {
-    string brainfuck_commands = "";
+void spoon(std::string commands, std::ostream &output) {
+    std::string brainfuck_commands = "";
 
     for (size_t i = 0; i < commands.length(); i++) {
         if (commands.substr(i, 1) == "1") {

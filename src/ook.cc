@@ -1,18 +1,15 @@
 #include "esoteric.hpp"
 #include <iostream>
 
-using namespace std;
-
-void ook(istream &input, ostream &output) {
-    string commands = get_input(input);
-
+void ook(std::istream &input, std::ostream &output) {
+    std::string commands = get_input(input);
     ook(commands, output);
 }
 
-void ook(string commands, ostream &output) {
-    string only_special_commands = "";
-    string brainfuck_commands = "";
-    string command = "";
+void ook(std::string commands, std::ostream &output) {
+    std::string only_special_commands = "";
+    std::string brainfuck_commands = "";
+    std::string command = "";
 
     for (auto el : commands) {
         if (el == '!' || el == '.' || el == '?') {
