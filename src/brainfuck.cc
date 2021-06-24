@@ -9,28 +9,30 @@ void brainfuck(std::istream &input, std::ostream &output) {
 
 void brainfuck(std::string commands, std::ostream &output) {
     int commands_size = commands.length();
-    std::vector<int> stack;
+    int * stack = new int[1024];
+    int stack_pointer = 0;
     int instructions_size = 0;
-    std::vector<Instruction> instructions(commands_size, Instruction());
+    struct Instruction * instructions = new struct Instruction[commands_size];
     int index = 0;
-    char command;
+    char current_command;
     char previous_command = 0;
     int count = 0;
     int opened_bracket = 0;
-    int buffer[30000];
+    int buffer[30000] = {0};
     int pointer = 0;
+    int i = 0;
 
     while (index < commands_size) {
-        command = commands[index++];
-        if (command != previous_command) {
+        current_command = commands[index++];
+        if (current_command != previous_command) {
             if (previous_command != 0) {
                 instructions[instructions_size].opcode = previous_command;
                 instructions[instructions_size].operand = count;
                 ++instructions_size;
             }
 
-            if (command == '+' || command == '-' || command == '<' || command == '>') {
-                previous_command = command;
+            if (current_command == '+' || current_command == '-' || current_command == '<' || current_command == '>') {
+                previous_command = current_command;
                 count = 1;
                 continue;
             } else {
@@ -41,26 +43,25 @@ void brainfuck(std::string commands, std::ostream &output) {
             ++count;
         }
 
-        if (command == '[') {
-            instructions[instructions_size].opcode = command;
-            stack.push_back(instructions_size);
+        if (current_command == '[') {
+            instructions[instructions_size].opcode = current_command;
+            stack[stack_pointer++] = instructions_size;
             ++instructions_size;
-        } else if (command == ']') {
-            opened_bracket = stack.back();
-            instructions[instructions_size].opcode = command;
+        } else if (current_command == ']') {
+            --stack_pointer;
+            opened_bracket = stack[stack_pointer];
+            instructions[instructions_size].opcode = current_command;
             instructions[instructions_size].operand = opened_bracket;
             instructions[opened_bracket].operand = instructions_size;
-            stack.pop_back();
             ++instructions_size;
-        } else if (command == '.' || command == ',') {
-            instructions[instructions_size].opcode = command;
+        } else if (current_command == '.' || current_command == ',') {
+            instructions[instructions_size].opcode = current_command;
             instructions[instructions_size].operand = 0;
             ++instructions_size;
         }
     }
-    instructions.resize(instructions_size);
 
-    for (int i = 0; i < instructions_size; i++) {
+    while (i < instructions_size) {
         if (instructions[i].opcode == '[') {
             if (buffer[pointer] == 0) {
                 i = instructions[i].operand;
@@ -82,5 +83,9 @@ void brainfuck(std::string commands, std::ostream &output) {
         } else if (instructions[i].opcode == '<') {
             pointer -= instructions[i].operand;
         }
+        ++i;
     }
+
+    delete[] instructions;
+    delete[] stack;
 }

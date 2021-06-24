@@ -36,7 +36,6 @@ After it, you can use esoteric.
     Usage: esoteric [options] file...
     Options:
       -x <language>    Specify the language of the following input file.
-      -c               Converts input file to C file.
       -o <file>        Place the output info <file>.
 
 ## Authors

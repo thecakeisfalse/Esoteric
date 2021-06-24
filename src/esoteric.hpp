@@ -4,12 +4,10 @@
 #include <iostream>
 #include <map>
 
-class Instruction {
-public:
+struct Instruction {
   unsigned char opcode;
   unsigned short operand;
 };
-
 
 void hq9_plus(std::istream&, std::ostream&);
 void hq9_plus(std::string, std::ostream&);

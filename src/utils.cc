@@ -26,11 +26,9 @@ std::string get_input(std::istream &input) {
 
     if (&input == &std::cin) {
         std::getline(input, text);
-    } else {
-        text = read_file(input);
+        return text;
     }
-
-    return text;
+    return read_file(input);
 }
 
 int get_file_size(std::string filename) {
