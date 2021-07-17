@@ -17,9 +17,21 @@ std::map<std::string, std::string> args_parse(int argc, char * argv[]) {
 
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-x")) {
-            args["language"] = argv[++i];
+            i++;
+            if (i < argc) {
+                args["language"] = argv[i];
+            } else {
+                std::cout << argv[0] << ": missing argument to '-x'" << std::endl;
+                exit(1);
+            }
         } else if (!strcmp(argv[i], "-o")) {
-            args["output_filename"] = argv[++i];
+            i++;
+            if (i < argc) {
+                args["output_filename"] = argv[i];
+            } else {
+                std::cout << argv[0] << ": missing filename after '-o'" << std::endl;
+                exit(1);
+            }
         } else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
             arg_help(argc, argv);
             args.clear();
